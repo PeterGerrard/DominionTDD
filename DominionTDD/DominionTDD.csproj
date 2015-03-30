@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Copper.cs" />
+    <Compile Include="Discards.cs" />
     <Compile Include="Duchy.cs" />
     <Compile Include="Estate.cs" />
     <Compile Include="Gold.cs" />
