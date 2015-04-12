@@ -1,6 +1,7 @@
+using DominionTDD.Cards;
 using NUnit.Framework;
 
-namespace DominionTDD.Tests
+namespace DominionTDD.Tests.Cards
 {
     class ProvinceTests : CardTests
     {

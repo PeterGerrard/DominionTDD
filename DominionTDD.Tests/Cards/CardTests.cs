@@ -1,4 +1,6 @@
-﻿namespace DominionTDD.Tests
+﻿using DominionTDD.Cards;
+
+namespace DominionTDD.Tests.Cards
 {
     class CardTests
     {

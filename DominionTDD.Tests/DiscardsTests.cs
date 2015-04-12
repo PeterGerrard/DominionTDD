@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using DominionTDD.Cards;
 using NUnit.Framework;
 
 namespace DominionTDD.Tests

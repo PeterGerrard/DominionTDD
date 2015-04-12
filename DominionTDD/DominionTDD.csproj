@@ -39,15 +39,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Copper.cs" />
+    <Compile Include="CardNotInHandException.cs" />
+    <Compile Include="Cards\Copper.cs" />
+    <Compile Include="Cards\Duchy.cs" />
+    <Compile Include="Cards\Estate.cs" />
+    <Compile Include="Cards\Gold.cs" />
+    <Compile Include="Cards\ICard.cs" />
+    <Compile Include="Cards\Province.cs" />
+    <Compile Include="Cards\Silver.cs" />
     <Compile Include="Discards.cs" />
-    <Compile Include="Duchy.cs" />
-    <Compile Include="Estate.cs" />
-    <Compile Include="Gold.cs" />
-    <Compile Include="ICard.cs" />
+    <Compile Include="Hand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Province.cs" />
-    <Compile Include="Silver.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,4 +1,4 @@
-﻿namespace DominionTDD
+﻿namespace DominionTDD.Cards
 {
     public interface ICard
     {
