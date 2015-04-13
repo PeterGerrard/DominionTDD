@@ -49,6 +49,7 @@
     <Compile Include="Cards\GoldTests.cs" />
     <Compile Include="Cards\ProvinceTests.cs" />
     <Compile Include="Cards\SilverTests.cs" />
+    <Compile Include="DeckTests.cs" />
     <Compile Include="DiscardsTests.cs" />
     <Compile Include="HandTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

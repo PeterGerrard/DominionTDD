@@ -47,6 +47,8 @@
     <Compile Include="Cards\ICard.cs" />
     <Compile Include="Cards\Province.cs" />
     <Compile Include="Cards\Silver.cs" />
+    <Compile Include="Deck.cs" />
+    <Compile Include="DeckIsEmptyException.cs" />
     <Compile Include="Discards.cs" />
     <Compile Include="Hand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
