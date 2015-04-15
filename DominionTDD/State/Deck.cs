@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using DominionTDD.Cards;
 
-namespace DominionTDD
+namespace DominionTDD.State
 {
     public class Deck
     {

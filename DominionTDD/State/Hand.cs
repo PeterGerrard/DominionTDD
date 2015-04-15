@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using DominionTDD.Cards;
 
-namespace DominionTDD
+namespace DominionTDD.State
 {
     public class Hand
     {

@@ -1,7 +1,8 @@
 ﻿using DominionTDD.Cards;
+using DominionTDD.State;
 using NUnit.Framework;
 
-namespace DominionTDD.Tests
+namespace DominionTDD.Tests.State
 {
     [TestFixture]
     public class DeckTests
