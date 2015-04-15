@@ -3,13 +3,20 @@ using DominionTDD.Cards;
 
 namespace DominionTDD.State
 {
-    public class Hand
+    public class Hand : IHand
     {
         private readonly IList<ICard> _cards = new List<ICard>();
 
         public void AddCard(ICard card)
         {
             _cards.Add(card);
+        }
+
+        public IEnumerable<ICard> TakeAll()
+        {
+            var removed = new List<ICard>(_cards);
+            _cards.Clear();
+            return removed;
         }
 
         public int Count { get { return _cards.Count; } }
@@ -26,13 +33,6 @@ namespace DominionTDD.State
                 throw new CardNotInHandException();
             }
             _cards.Remove(card);
-        }
-
-        public IEnumerable<ICard> Empty()
-        {
-            var removed = new List<ICard>(_cards);
-            _cards.Clear();
-            return removed;
         }
     }
 }

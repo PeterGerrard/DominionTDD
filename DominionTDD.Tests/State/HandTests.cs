@@ -78,7 +78,7 @@ namespace DominionTDD.Tests.State
         public void EmptyingAnEmptyHandReturnsNothing()
         {
             // ACT
-            var removed = _hand.Empty();
+            var removed = _hand.TakeAll();
 
             // ASSERT
             Assert.That(removed, Is.Empty);
@@ -94,7 +94,7 @@ namespace DominionTDD.Tests.State
             _hand.AddCard(silver);
 
             // ACT
-            var removed = _hand.Empty();
+            var removed = _hand.TakeAll();
 
             // ASSERT
             Assert.That(removed, Is.EqualTo(new ICard[]{copper, silver}));
@@ -110,7 +110,7 @@ namespace DominionTDD.Tests.State
             _hand.AddCard(silver);
 
             // ACT
-            var removed = _hand.Empty();
+            var removed = _hand.TakeAll();
 
             // ASSERT
             AssertHandContainsOnlyTheseCards(Enumerable.Empty<ICard>(), new ICard[]{copper, silver});

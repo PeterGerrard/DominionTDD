@@ -3,7 +3,7 @@ using DominionTDD.Cards;
 
 namespace DominionTDD.State
 {
-    public class PlayArea
+    public class PlayArea : IPlayArea
     {
         private readonly IList<ICard> _cards = new List<ICard>();
 
