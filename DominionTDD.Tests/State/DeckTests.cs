@@ -16,26 +16,6 @@ namespace DominionTDD.Tests.State
         }
 
         [Test]
-        public void DeckStartsEmpty()
-        {
-            // ASSERT
-            Assert.That(_deck.Count, Is.EqualTo(0));
-        }
-
-        [Test]
-        public void CanAddACardToTheDeck()
-        {
-            // ARRANGE
-            var card = new Copper();
-
-            // ACT
-            _deck.AddCard(card);
-
-            // ASSERT
-            Assert.That(_deck.Count, Is.EqualTo(1));
-        }
-
-        [Test]
         public void AfterAddingACardItIsTheTopCard()
         {
             // ARRANGE
@@ -64,21 +44,6 @@ namespace DominionTDD.Tests.State
         }
 
         [Test]
-        public void CanAddMultipleCards()
-        {
-            // ARRANGE
-            var copper = new Copper();
-            var silver = new Silver();
-
-            // ACT
-            _deck.AddCard(copper);
-            _deck.AddCard(silver);
-
-            // ASSERT
-            Assert.That(_deck.Count, Is.EqualTo(2));
-        }
-
-        [Test]
         public void LastAddedCardIsTheTopCard()
         {
             // ARRANGE
@@ -88,9 +53,9 @@ namespace DominionTDD.Tests.State
             // ACT
             _deck.AddCard(copper);
             _deck.AddCard(silver);
-            var topCard = _deck.TakeCard();
 
             // ASSERT
+            var topCard = _deck.TakeCard();
             Assert.That(topCard, Is.EqualTo(silver));
         }
 
@@ -104,7 +69,7 @@ namespace DominionTDD.Tests.State
             // ACT
             _deck.AddCard(copper);
             _deck.AddCard(silver);
-            var topCard = _deck.TakeCard();
+            _deck.TakeCard();
             var bottomCard = _deck.TakeCard();
 
             // ASSERT

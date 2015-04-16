@@ -3,30 +3,11 @@ using DominionTDD.Cards;
 
 namespace DominionTDD.State
 {
-    public class PlayArea : IPlayArea
+    public class PlayArea : CardCollection, IPlayArea
     {
-        private readonly IList<ICard> _cards = new List<ICard>();
-
-        public IEnumerable<ICard> Cards()
+        public IEnumerable<ICard> GetCards()
         {
-            return _cards;
-        }
-
-        public int Count
-        {
-            get { return _cards.Count; }
-        }
-
-        public void AddCard(ICard card)
-        {
-            _cards.Add(card);
-        }
-
-        public IEnumerable<ICard> TakeAll()
-        {
-            var taken = new List<ICard>(_cards);
-            _cards.Clear();
-            return taken;
+            return Cards;
         }
     }
 }

@@ -4,30 +4,11 @@ using DominionTDD.Cards;
 
 namespace DominionTDD.State
 {
-    public class Discards : IDiscards
+    public class Discards : CardCollection, IDiscards
     {
-        private readonly IList<ICard> _cards = new List<ICard>();
-
-        public void AddCard(ICard card)
-        {
-            _cards.Add(card);
-        }
-
-        public IEnumerable<ICard> TakeAll()
-        {
-            var taken = new List<ICard>(_cards);
-            _cards.Clear();
-            return taken;
-        }
-
-        public int Count
-        {
-            get { return _cards.Count; }
-        }
-
         public ICard TopCard
         {
-            get { return _cards.LastOrDefault(); }
+            get { return Cards.LastOrDefault(); }
         }
     }
 }

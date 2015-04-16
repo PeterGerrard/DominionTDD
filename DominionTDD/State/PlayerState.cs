@@ -43,11 +43,7 @@ namespace DominionTDD.State
 
         public void DiscardHand()
         {
-            var hand = _hand.TakeAll();
-            foreach (var card in hand)
-            {
-                _discards.AddCard(card);
-            }
+            EmptyIntoDiscards(_hand);
         }
 
         public void PlayCard(ICard card)
@@ -61,7 +57,12 @@ namespace DominionTDD.State
 
         public void EmptyPlayArea()
         {
-            var cards = _playArea.TakeAll();
+            EmptyIntoDiscards(_playArea);
+        }
+
+        private void EmptyIntoDiscards(ITakeAllCards area)
+        {
+            var cards = area.TakeAll();
             foreach (var card in cards)
             {
                 _discards.AddCard(card);

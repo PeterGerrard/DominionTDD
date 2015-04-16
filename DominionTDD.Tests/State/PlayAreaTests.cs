@@ -19,8 +19,7 @@ namespace DominionTDD.Tests.State
         public void PlayAreaStartsEmpty()
         {
             // ASSERT
-            Assert.That(_playArea.Cards(), Is.Empty);
-            Assert.That(_playArea.Count, Is.EqualTo(0));
+            Assert.That(_playArea.GetCards(), Is.Empty);
         }
 
         [Test]
@@ -28,13 +27,13 @@ namespace DominionTDD.Tests.State
         {
             // ARRANGE
             var copper = new Copper();
-
-            // ACT
             _playArea.AddCard(copper);
 
+            // ACT
+            var playedCards = _playArea.GetCards();
+
             // ASSERT
-            Assert.That(_playArea.Cards(), Is.EquivalentTo(new[] { copper }));
-            Assert.That(_playArea.Count, Is.EqualTo(1));
+            Assert.That(playedCards, Is.EquivalentTo(new[] { copper }));
         }
 
         [Test]
@@ -43,56 +42,14 @@ namespace DominionTDD.Tests.State
             // ARRANGE
             var copper = new Copper();
             var silver = new Silver();
-
-            // ACT
-            _playArea.AddCard(copper);
-            _playArea.AddCard(silver);
-
-            // ASSERT
-            Assert.That(_playArea.Cards(), Is.EquivalentTo(new ICard[] { copper, silver }));
-            Assert.That(_playArea.Count, Is.EqualTo(2));
-        }
-
-        [Test]
-        public void RemovingAllCardsWhenEmptyReturnsEmptySet()
-        {  
-            // ACT
-            var removed = _playArea.TakeAll();
-
-            // ASSERT
-            Assert.That(removed, Is.Empty);
-        }
-
-        [Test]
-        public void RemovingMultipleCardsGetsAllTheCards()
-        {
-            // ARRANGE
-            var copper = new Copper();
-            var silver = new Silver();
             _playArea.AddCard(copper);
             _playArea.AddCard(silver);
 
             // ACT
-            var removed = _playArea.TakeAll();
+            var playedCards = _playArea.GetCards();
 
             // ASSERT
-            Assert.That(removed, Is.EquivalentTo(new ICard[] { copper, silver }));
-        }
-
-        [Test]
-        public void TakingAllCardsLeavesItEmpty()
-        {
-            // ARRANGE
-            var copper = new Copper();
-            var silver = new Silver();
-            _playArea.AddCard(copper);
-            _playArea.AddCard(silver);
-
-            // ACT
-            _playArea.TakeAll();
-
-            // ASSERT
-            Assert.That(_playArea.Cards(), Is.Empty);
+            Assert.That(playedCards, Is.EquivalentTo(new ICard[] { copper, silver }));
         }
     }
 }
