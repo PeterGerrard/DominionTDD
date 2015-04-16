@@ -21,7 +21,6 @@ namespace DominionTDD.Tests.State
         {
             _hand = Substitute.For<IHand>();
             _deck = Substitute.For<IDeck>();
-            _deck.IsEmpty().Returns(true);
             _discards = Substitute.For<IDiscards>();
             _discards.IsEmpty().Returns(true);
             _shuffler = Substitute.For<IShuffler<ICard>>();
@@ -45,7 +44,7 @@ namespace DominionTDD.Tests.State
             // ARRANGE
             var card = new Copper();
             _deck.TakeCard().Returns(card);
-            _deck.IsEmpty().Returns(false);
+            _deck.Count.Returns(1);
 
             // ACT
             _playerState.DrawCard();
@@ -60,7 +59,8 @@ namespace DominionTDD.Tests.State
         {
             // ARRANGE
             var taken = Enumerable.Repeat(new Copper(), 1);
-            var shuffled = Enumerable.Repeat(new Silver(), 1);
+            var silver = new Silver();
+            var shuffled = Enumerable.Repeat(silver, 1);
             _discards.IsEmpty().Returns(false);
             _discards.TakeAll().Returns(taken);
             _shuffler.Shuffle(taken).Returns(shuffled);
@@ -71,7 +71,7 @@ namespace DominionTDD.Tests.State
             // ASSERT
             _discards.Received(1).TakeAll();
             _shuffler.Received(1).Shuffle(taken);
-            _deck.Received(1).AddCards(shuffled);
+            _deck.Received(1).PlaceOnTop(silver);
         }
 
         [Test]

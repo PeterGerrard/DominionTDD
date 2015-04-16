@@ -21,13 +21,16 @@ namespace DominionTDD.State
 
         public void DrawCard()
         {
-            if (_deck.IsEmpty())
+            if (_deck.Count == 0)
             {
                 if (!_discards.IsEmpty())
                 {
                     var discards = _discards.TakeAll();
                     var shuffled = _shuffler.Shuffle(discards);
-                    _deck.AddCards(shuffled);
+                    foreach (var card in shuffled)
+                    {
+                        _deck.PlaceOnTop(card);
+                    }
                 }
                 else
                 {
