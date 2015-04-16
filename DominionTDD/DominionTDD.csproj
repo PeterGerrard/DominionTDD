@@ -52,11 +52,13 @@
     <Compile Include="State\Deck.cs" />
     <Compile Include="State\Discards.cs" />
     <Compile Include="State\Hand.cs" />
+    <Compile Include="State\ICardPile.cs" />
     <Compile Include="State\IDeck.cs" />
     <Compile Include="State\IDiscards.cs" />
     <Compile Include="State\IHand.cs" />
     <Compile Include="State\IPlayArea.cs" />
     <Compile Include="State\IShuffler.cs" />
+    <Compile Include="State\ITakeAllCards.cs" />
     <Compile Include="State\PlayArea.cs" />
     <Compile Include="State\PlayerState.cs" />
   </ItemGroup>

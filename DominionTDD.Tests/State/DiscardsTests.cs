@@ -30,7 +30,7 @@ namespace DominionTDD.Tests.State
         public void CanAddOneCardToDiscards()
         {
             // ACT
-            _discards.Add(_copper);
+            _discards.AddCard(_copper);
 
             // ASSERT
             Assert.That(_discards.Count, Is.EqualTo(1));
@@ -40,8 +40,8 @@ namespace DominionTDD.Tests.State
         public void CanAddMultipleCardsAtOnceToDiscards()
         {
             // ACT
-            _discards.Add(_copper);
-            _discards.Add(_estate);
+            _discards.AddCard(_copper);
+            _discards.AddCard(_estate);
 
             // ASSERT
             Assert.That(_discards.Count, Is.EqualTo(2));
@@ -57,7 +57,7 @@ namespace DominionTDD.Tests.State
         public void AfterAddingACardThatIsTheTopCard()
         {
             // ACT
-            _discards.Add(_copper);
+            _discards.AddCard(_copper);
 
             // ASSERT
             Assert.That(_discards.TopCard, Is.InstanceOf<Copper>());
@@ -67,8 +67,8 @@ namespace DominionTDD.Tests.State
         public void AfterAddingMultipleCardsIndividuallyTheLastIsTheTopCard()
         {
             // ACT
-            _discards.Add(_copper);
-            _discards.Add(_estate);
+            _discards.AddCard(_copper);
+            _discards.AddCard(_estate);
             
             // ASSERT
             Assert.That(_discards.TopCard, Is.InstanceOf<Estate>());
@@ -88,7 +88,7 @@ namespace DominionTDD.Tests.State
         public void TakingAnIndividualCardGetsYouThatOneCard()
         {
             // ARRANGE
-            _discards.Add(_copper);
+            _discards.AddCard(_copper);
 
             // ACT
             var taken = _discards.TakeAll();
@@ -101,8 +101,8 @@ namespace DominionTDD.Tests.State
         public void TakingMultipleCardsGetsAllOfThem()
         {
             // ARRANGE
-            _discards.Add(_copper);
-            _discards.Add(_estate);
+            _discards.AddCard(_copper);
+            _discards.AddCard(_estate);
 
             // ACT
             var taken = _discards.TakeAll();
@@ -115,8 +115,8 @@ namespace DominionTDD.Tests.State
         public void AfterTakingCardsTheDiscardsIsEmpty()
         {
             // ARRANGE
-            _discards.Add(_copper);
-            _discards.Add(_estate);
+            _discards.AddCard(_copper);
+            _discards.AddCard(_estate);
             
             // ACT
             _discards.TakeAll();
@@ -129,7 +129,7 @@ namespace DominionTDD.Tests.State
         public void AfterTakingCardsTheTopCardIsNull()
         {
             // ARRANGE
-            _discards.Add(_copper);
+            _discards.AddCard(_copper);
 
             // ACT
             _discards.TakeAll();

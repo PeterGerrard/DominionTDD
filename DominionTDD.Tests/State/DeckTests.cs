@@ -29,7 +29,7 @@ namespace DominionTDD.Tests.State
             var card = new Copper();
 
             // ACT
-            _deck.PlaceOnTop(card);
+            _deck.AddCard(card);
 
             // ASSERT
             Assert.That(_deck.Count, Is.EqualTo(1));
@@ -42,7 +42,7 @@ namespace DominionTDD.Tests.State
             var added = new Copper();
 
             // ACT
-            _deck.PlaceOnTop(added);
+            _deck.AddCard(added);
             var taken = _deck.TakeCard();
 
             // ASSERT
@@ -54,7 +54,7 @@ namespace DominionTDD.Tests.State
         {
             // ARRANGE
             var card = new Copper();
-            _deck.PlaceOnTop(card);
+            _deck.AddCard(card);
 
             // ACT
             _deck.TakeCard();
@@ -71,8 +71,8 @@ namespace DominionTDD.Tests.State
             var silver = new Silver();
 
             // ACT
-            _deck.PlaceOnTop(copper);
-            _deck.PlaceOnTop(silver);
+            _deck.AddCard(copper);
+            _deck.AddCard(silver);
 
             // ASSERT
             Assert.That(_deck.Count, Is.EqualTo(2));
@@ -86,8 +86,8 @@ namespace DominionTDD.Tests.State
             var silver = new Silver();
 
             // ACT
-            _deck.PlaceOnTop(copper);
-            _deck.PlaceOnTop(silver);
+            _deck.AddCard(copper);
+            _deck.AddCard(silver);
             var topCard = _deck.TakeCard();
 
             // ASSERT
@@ -102,8 +102,8 @@ namespace DominionTDD.Tests.State
             var silver = new Silver();
 
             // ACT
-            _deck.PlaceOnTop(copper);
-            _deck.PlaceOnTop(silver);
+            _deck.AddCard(copper);
+            _deck.AddCard(silver);
             var topCard = _deck.TakeCard();
             var bottomCard = _deck.TakeCard();
 

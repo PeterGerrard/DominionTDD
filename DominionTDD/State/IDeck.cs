@@ -2,10 +2,8 @@ using DominionTDD.Cards;
 
 namespace DominionTDD.State
 {
-    public interface IDeck
+    public interface IDeck : ICardPile
     {
         ICard TakeCard();
-        int Count { get; }
-        void PlaceOnTop(ICard card);
     }
 }

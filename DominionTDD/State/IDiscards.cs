@@ -1,12 +1,6 @@
-using System.Collections.Generic;
-using DominionTDD.Cards;
-
 namespace DominionTDD.State
 {
-    public interface IDiscards
+    public interface IDiscards : ICardPile, ITakeAllCards
     {
-        int Count { get; }
-        IEnumerable<ICard> TakeAll();
-        void Add(ICard card);
     }
 }

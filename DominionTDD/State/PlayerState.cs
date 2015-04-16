@@ -29,7 +29,7 @@ namespace DominionTDD.State
                     var shuffled = _shuffler.Shuffle(discards);
                     foreach (var card in shuffled)
                     {
-                        _deck.PlaceOnTop(card);
+                        _deck.AddCard(card);
                     }
                 }
                 else
@@ -46,7 +46,7 @@ namespace DominionTDD.State
             var hand = _hand.TakeAll();
             foreach (var card in hand)
             {
-                _discards.Add(card);
+                _discards.AddCard(card);
             }
         }
 
@@ -64,13 +64,13 @@ namespace DominionTDD.State
             var cards = _playArea.TakeAll();
             foreach (var card in cards)
             {
-                _discards.Add(card);
+                _discards.AddCard(card);
             }
         }
 
         public void GainCard(ICard card)
         {
-            _discards.Add(card);
+            _discards.AddCard(card);
         }
     }
 }

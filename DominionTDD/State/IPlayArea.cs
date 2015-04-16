@@ -1,11 +1,6 @@
-using System.Collections.Generic;
-using DominionTDD.Cards;
-
 namespace DominionTDD.State
 {
-    public interface IPlayArea
+    public interface IPlayArea : ICardPile, ITakeAllCards
     {
-        void AddCard(ICard card);
-        IEnumerable<ICard> TakeAll();
     }
 }

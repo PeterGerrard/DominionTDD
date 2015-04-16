@@ -12,6 +12,11 @@ namespace DominionTDD.State
             return _cards;
         }
 
+        public int Count
+        {
+            get { return _cards.Count; }
+        }
+
         public void AddCard(ICard card)
         {
             _cards.Add(card);

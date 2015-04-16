@@ -20,6 +20,7 @@ namespace DominionTDD.Tests.State
         {
             // ASSERT
             Assert.That(_playArea.Cards(), Is.Empty);
+            Assert.That(_playArea.Count, Is.EqualTo(0));
         }
 
         [Test]
@@ -32,7 +33,8 @@ namespace DominionTDD.Tests.State
             _playArea.AddCard(copper);
 
             // ASSERT
-            Assert.That(_playArea.Cards(), Is.EquivalentTo(new []{copper}));
+            Assert.That(_playArea.Cards(), Is.EquivalentTo(new[] { copper }));
+            Assert.That(_playArea.Count, Is.EqualTo(1));
         }
 
         [Test]
@@ -48,6 +50,7 @@ namespace DominionTDD.Tests.State
 
             // ASSERT
             Assert.That(_playArea.Cards(), Is.EquivalentTo(new ICard[] { copper, silver }));
+            Assert.That(_playArea.Count, Is.EqualTo(2));
         }
 
         [Test]

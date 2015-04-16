@@ -8,7 +8,7 @@ namespace DominionTDD.State
     {
         private readonly IList<ICard> _cards = new List<ICard>();
 
-        public void PlaceOnTop(ICard card)
+        public void AddCard(ICard card)
         {
             _cards.Add(card);
         }

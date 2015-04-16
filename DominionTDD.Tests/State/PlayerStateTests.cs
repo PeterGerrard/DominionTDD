@@ -70,7 +70,7 @@ namespace DominionTDD.Tests.State
             // ASSERT
             _discards.Received(1).TakeAll();
             _shuffler.Received(1).Shuffle(Arg.Any<IEnumerable<ICard>>());
-            _deck.Received(1).PlaceOnTop(silver);
+            _deck.Received(1).AddCard(silver);
         }
 
         [Test]
@@ -85,7 +85,7 @@ namespace DominionTDD.Tests.State
             _playerState.DiscardHand();
 
             // ASSERT
-            _discards.Received(1).Add(copper);
+            _discards.Received(1).AddCard(copper);
         }
 
         [Test]
@@ -130,7 +130,7 @@ namespace DominionTDD.Tests.State
 
             // ASSERT
             _playArea.Received(1).TakeAll();
-            _discards.Received(1).Add(copper);
+            _discards.Received(1).AddCard(copper);
         }
 
         [Test]
@@ -143,7 +143,7 @@ namespace DominionTDD.Tests.State
             _playerState.GainCard(card);
 
             // ASSERT
-            _discards.Received(1).Add(card);
+            _discards.Received(1).AddCard(card);
         }
     }
 }
