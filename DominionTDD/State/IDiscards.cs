@@ -5,9 +5,8 @@ namespace DominionTDD.State
 {
     public interface IDiscards
     {
-        bool IsEmpty();
+        int Count { get; }
         IEnumerable<ICard> TakeAll();
-        void AddCards(IEnumerable<ICard> cards);
-        void AddCard(ICard card);
+        void Add(ICard card);
     }
 }

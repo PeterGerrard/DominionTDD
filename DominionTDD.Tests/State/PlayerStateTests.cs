@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using DominionTDD.Cards;
 using DominionTDD.State;
 using NSubstitute;
@@ -22,7 +23,6 @@ namespace DominionTDD.Tests.State
             _hand = Substitute.For<IHand>();
             _deck = Substitute.For<IDeck>();
             _discards = Substitute.For<IDiscards>();
-            _discards.IsEmpty().Returns(true);
             _shuffler = Substitute.For<IShuffler<ICard>>();
             _playArea = Substitute.For<IPlayArea>();
             _playerState = new PlayerState(_deck, _hand, _discards, _shuffler, _playArea);
@@ -58,19 +58,18 @@ namespace DominionTDD.Tests.State
         public void WhenDeckIsEmptyAndDiscardsIsNotThenDrawingCausesDiscardsToBeShuffledIntoDeck()
         {
             // ARRANGE
-            var taken = Enumerable.Repeat(new Copper(), 1);
             var silver = new Silver();
             var shuffled = Enumerable.Repeat(silver, 1);
-            _discards.IsEmpty().Returns(false);
-            _discards.TakeAll().Returns(taken);
-            _shuffler.Shuffle(taken).Returns(shuffled);
+            _discards.Count.Returns(1);
+            _discards.TakeAll().Returns(Enumerable.Empty<ICard>());
+            _shuffler.Shuffle(Arg.Any<IEnumerable<ICard>>()).Returns(shuffled);
 
             // ACT
             _playerState.DrawCard();
 
             // ASSERT
             _discards.Received(1).TakeAll();
-            _shuffler.Received(1).Shuffle(taken);
+            _shuffler.Received(1).Shuffle(Arg.Any<IEnumerable<ICard>>());
             _deck.Received(1).PlaceOnTop(silver);
         }
 
@@ -78,14 +77,15 @@ namespace DominionTDD.Tests.State
         public void WhenDiscardHandTheyAllEndInDiscards()
         {
             // ARRANGE
-            var hand = Enumerable.Repeat(new Copper(), 1);
+            var copper = new Copper();
+            var hand = Enumerable.Repeat(copper, 1);
             _hand.TakeAll().Returns(hand);
 
             // ACT
             _playerState.DiscardHand();
 
             // ASSERT
-            _discards.Received(1).AddCards(hand);
+            _discards.Received(1).Add(copper);
         }
 
         [Test]
@@ -122,15 +122,15 @@ namespace DominionTDD.Tests.State
         public void EmptyingPlayAreaAddsItToDiscards()
         {
             // ARRANGE
-            var cards = new []{new Copper()};
-            _playArea.TakeAll().Returns(cards);
+            var copper = new Copper();
+            _playArea.TakeAll().Returns(new []{copper});
             
             // ACT
             _playerState.EmptyPlayArea();
 
             // ASSERT
             _playArea.Received(1).TakeAll();
-            _discards.Received(1).AddCards(cards);
+            _discards.Received(1).Add(copper);
         }
 
         [Test]
@@ -143,7 +143,7 @@ namespace DominionTDD.Tests.State
             _playerState.GainCard(card);
 
             // ASSERT
-            _discards.Received(1).AddCard(card);
+            _discards.Received(1).Add(card);
         }
     }
 }

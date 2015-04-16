@@ -23,7 +23,7 @@ namespace DominionTDD.State
         {
             if (_deck.Count == 0)
             {
-                if (!_discards.IsEmpty())
+                if (_discards.Count > 0)
                 {
                     var discards = _discards.TakeAll();
                     var shuffled = _shuffler.Shuffle(discards);
@@ -44,7 +44,10 @@ namespace DominionTDD.State
         public void DiscardHand()
         {
             var hand = _hand.TakeAll();
-            _discards.AddCards(hand);
+            foreach (var card in hand)
+            {
+                _discards.Add(card);
+            }
         }
 
         public void PlayCard(ICard card)
@@ -59,12 +62,15 @@ namespace DominionTDD.State
         public void EmptyPlayArea()
         {
             var cards = _playArea.TakeAll();
-            _discards.AddCards(cards);
+            foreach (var card in cards)
+            {
+                _discards.Add(card);
+            }
         }
 
         public void GainCard(ICard card)
         {
-            _discards.AddCard(card);
+            _discards.Add(card);
         }
     }
 }

@@ -4,7 +4,7 @@ using DominionTDD.Cards;
 
 namespace DominionTDD.State
 {
-    public class Discards
+    public class Discards : IDiscards
     {
         private readonly IList<ICard> _cards = new List<ICard>();
 
