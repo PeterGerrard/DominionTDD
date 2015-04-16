@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using DominionTDD.Cards;
+﻿using DominionTDD.Cards;
 using DominionTDD.State;
 using NUnit.Framework;
 

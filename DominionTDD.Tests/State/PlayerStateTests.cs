@@ -94,7 +94,6 @@ namespace DominionTDD.Tests.State
             // ARRANGE
             var copper = new Copper();
             _hand.Contains(copper).Returns(true);
-            var hand = Enumerable.Repeat(copper, 1);
 
             // ACT
             _playerState.PlayCard(copper);

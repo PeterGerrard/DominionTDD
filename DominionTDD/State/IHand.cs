@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using DominionTDD.Cards;
 
 namespace DominionTDD.State
