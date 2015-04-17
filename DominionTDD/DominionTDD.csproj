@@ -48,6 +48,13 @@
     <Compile Include="Cards\Province.cs" />
     <Compile Include="Cards\Silver.cs" />
     <Compile Include="DeckIsEmptyException.cs" />
+    <Compile Include="GameCreator.cs" />
+    <Compile Include="GameState.cs" />
+    <Compile Include="State\IKingdomState.cs" />
+    <Compile Include="IncorrectNumberOfPlayersException.cs" />
+    <Compile Include="IPlayer.cs" />
+    <Compile Include="State\IPlayerState.cs" />
+    <Compile Include="IPlayerStateFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="State\CardCollection.cs" />
     <Compile Include="State\Deck.cs" />

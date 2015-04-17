@@ -52,6 +52,7 @@
     <Compile Include="Cards\GoldTests.cs" />
     <Compile Include="Cards\ProvinceTests.cs" />
     <Compile Include="Cards\SilverTests.cs" />
+    <Compile Include="GameCreationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="State\CardCollectionTests.cs" />
     <Compile Include="State\DeckTests.cs" />
